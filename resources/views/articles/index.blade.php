@@ -1,4 +1,4 @@
-@extends('layouts.app') 
+@extends('layouts.master') 
 
 @section('content') 
 @if ($message = Session::get('success')) 
@@ -6,6 +6,11 @@
             <p>{{ $message }}</p> 
         </div> 
     @endif 
+    <div class="row">
+        <div style="margin:0px 0px 0px 70px;">
+            <a class="btn btn-success" href="{{ route('articles.cetak_pdf') }}">Cetak PDF</a>
+        </div>
+    </div><br/>
     <table class="table table-bordered" style="width:95%;margin: 0 auto;"> 
         <tr> 
             <th>Judul</th> 
@@ -20,9 +25,4 @@
         </tr> 
         @endforeach 
     </table> 
-    <div class="container">
-        <div class="row justify-content-center">
-            <a class="btn btn-primary mt-3 btn-center" href="{{ route('articles.cetak_pdf') }}">Cetak Artikel</a>
-        </div>
-    </div>
 @endsection 
